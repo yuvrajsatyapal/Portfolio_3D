@@ -1,0 +1,1 @@
+export { SkillsScene as default } from '@/components/3d/_SkillsScene'

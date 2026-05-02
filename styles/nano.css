@@ -1,0 +1,27 @@
+/*
+ * Nano Banana 2 — import the package and override defaults to match
+ * the black/yellow theme. If nano-banana-2 has a CSS entry point, import it:
+ *
+ *   @import 'nano-banana-2/dist/index.css';
+ *
+ * Then override below. If it's a JS-only package that injects styles,
+ * configure it in the component where you initialise it.
+ */
+
+/* ── Nano Banana 2 overrides ─────────────────────────── */
+/* Uncomment the import once the package is installed:
+@import 'nano-banana-2/dist/nano.css';
+*/
+
+/* Example overrides to match portfolio theme */
+:root {
+  --nb-color-primary:    var(--clr-yellow);
+  --nb-color-primary-fg: var(--clr-black);
+  --nb-color-bg:         var(--clr-bg);
+  --nb-color-surface:    var(--clr-surface);
+  --nb-color-text:       var(--clr-text);
+  --nb-color-text-muted: var(--clr-text-muted);
+  --nb-radius:           var(--radius-md);
+  --nb-font-sans:        var(--font-body);
+  --nb-font-mono:        var(--font-mono);
+}

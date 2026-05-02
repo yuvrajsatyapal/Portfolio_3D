@@ -1,0 +1,59 @@
+/* ── Keyframes ───────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(1deg); }
+  66%       { transform: translateY(-6px) rotate(-1deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(250,204,21,0); }
+  50%      { box-shadow: 0 0 24px 4px rgba(250,204,21,0.3); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes grain {
+  0%,100% { transform: translate(0,0); }
+  10%      { transform: translate(-2%,-3%); }
+  20%      { transform: translate(3%,2%); }
+  30%      { transform: translate(-1%,4%); }
+  40%      { transform: translate(4%,-1%); }
+  50%      { transform: translate(-3%,3%); }
+  60%      { transform: translate(2%,-4%); }
+  70%      { transform: translate(-4%,1%); }
+  80%      { transform: translate(1%,-2%); }
+  90%      { transform: translate(-2%,4%); }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ── Utility classes ─────────────────────────────────── */
+.animate-float      { animation: float 6s ease-in-out infinite; }
+.animate-spin-slow  { animation: spin-slow 20s linear infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-shimmer    { animation: shimmer 2s linear infinite; }
+
+/* ── Reduced motion ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
