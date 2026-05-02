@@ -7,11 +7,11 @@ import { motion, AnimatePresence }           from 'framer-motion'
 // hash  = scroll to section on the home page (no route change)
 // route = navigate to a dedicated page
 const LINKS = [
-  { label: 'About',   hash: 'about'   },
+  { label: 'About',      hash: 'about'      },
+  { label: 'Work',       route: '/work'     },
   { label: 'Experience', hash: 'experience' },
-  { label: 'Work',    route: '/work'  },
-  { label: 'Skills',  hash: 'skills'  },
-  { label: 'Contact', route: '/contact' },
+  { label: 'Skills',     hash: 'skills'     },
+  { label: 'Contact',    route: '/contact'  },
 ] as const
 
 type NavItem = typeof LINKS[number]
@@ -157,6 +157,39 @@ export function Navbar() {
                 />
               </motion.div>
             ))}
+
+            {/* ── X close button — below last link ── */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0.7 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.7 }}
+              transition={{ duration: 0.25, delay: LINKS.length * 0.07 }}
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+              style={{
+                marginTop:  '1rem',
+                background: 'none',
+                border:     '1px solid var(--clr-grey-700)',
+                borderRadius: '50%',
+                width:      65,
+                height:     65,
+                display:    'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor:     'none',
+                color:      'var(--clr-grey-500)',
+                transition: 'border-color 0.2s, color 0.2s',
+              }}
+              whileHover={{
+                borderColor: 'var(--clr-yellow)',
+                color:       'var(--clr-yellow)',
+              } as never}
+              whileTap={{ scale: 0.9 } as never}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
